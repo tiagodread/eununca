@@ -1,0 +1,6 @@
+flask
+Flask-SQLAlchemy
+psycopg2
+marshmallow-sqlalchemy
+flask_marshmallow
+Flask-BasicAuth
