@@ -21,6 +21,18 @@ if __name__ == '__main__':
         return api.quotes.add_quotes()
 
 
+    @app.route('/quotes/edit/<id>', methods=['PUT'])
+    @basic_auth.required
+    def update_quotes(id):
+        return api.quotes.update_quote(id)
+
+
+    @app.route('/quotes/delete/<id>', methods=['DELETE'])
+    @basic_auth.required
+    def delete_quotes(id):
+        return api.quotes.delete_quote(id)
+
+
     @app.route('/categories', methods=['GET'])
     @basic_auth.required
     def list_categories():
@@ -31,6 +43,18 @@ if __name__ == '__main__':
     @basic_auth.required
     def add_categories():
         return api.categories.add_categories()
+
+
+    @app.route('/categories/edit/<id>', methods=['PUT'])
+    @basic_auth.required
+    def edit_categories(id):
+        return api.categories.edit_category(id)
+
+
+    @app.route('/categories/delete/<id>', methods=['DELETE'])
+    @basic_auth.required
+    def delete_categories(id):
+        return api.categories.delete_category(id)
 
 
     app.run()

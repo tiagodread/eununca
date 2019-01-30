@@ -30,6 +30,29 @@ class Quotes(db.Model):
         db.session.commit()
         return Response(status=201)
 
+    def update_quote(self, id):
+        description = request.form['description']
+        quality = request.form['quality']
+        category_id = request.form['category_id']
+
+        quote = db.session.query(Quotes).filter_by(id=id).first()
+        quote.description = description
+        quote.quality = quality
+        quote.category_id = category_id
+        db.session.add(quote)
+        db.session.commit()
+        return Response(status=200)
+
+    def delete_quote(self, id):
+        quote = db.session.query(Quotes).filter_by(id=id).first()
+        db.session.delete(quote)
+        db.session.commit()
+        return Response(status=200)
+
+    def __repr__(self):
+        return '<description=%s, quality=%s, category_id=%s>' % (
+            self.description, self.quality, self.category_id)
+
 
 class QuoteSchema(ma.ModelSchema):
     class Meta:
