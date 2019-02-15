@@ -1,8 +1,8 @@
 def get_env(env):
-    if (env == 'local'):
-        return ConfigLocal()
-    elif (env == 'prod'):
+    if (env == 'prod'):
         return ConfigProd()
+    else:
+        return ConfigLocal()
 
 
 class ConfigProd(object):
