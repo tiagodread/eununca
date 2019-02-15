@@ -1,13 +1,16 @@
+import os
+
 from flask import Flask
 from flask_basicauth import BasicAuth, Response
 
 from .api import Api
 from .models import db
-from .utils.config import Config
+from .utils.config import get_env
 
+env = os.environ.get('EUNUNCA_ENV')
+print(env)
 app = Flask(__name__)
-app.config.from_object(Config)
-# app.run()
+app.config.from_object(get_env(env))
 db.init_app(app)
 db.app = app
 db.create_all()
