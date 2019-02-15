@@ -7,7 +7,7 @@ from .utils.config import Config
 
 app = Flask(__name__)
 app.config.from_object(Config)
-app.run()
+# app.run()
 db.init_app(app)
 db.app = app
 db.create_all()

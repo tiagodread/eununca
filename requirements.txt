@@ -1,6 +1,6 @@
 flask
 Flask-SQLAlchemy
-psycopg2
+psycopg2-binary
 marshmallow-sqlalchemy
 flask_marshmallow
 gunicorn
