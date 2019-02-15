@@ -1,6 +1,6 @@
 from flask import jsonify, request, Response
 
-from src.models.quotes import Quotes
+from app.models.quotes import Quotes
 from . import db, ma, get_paid_or_free_category
 
 

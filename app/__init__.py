@@ -1,9 +1,9 @@
 from flask import Flask
 from flask_basicauth import BasicAuth, Response
 
-from src.api import Api
-from src.models import db
-from src.utils.config import Config
+from .api import Api
+from .models import db
+from .utils.config import Config
 
 app = Flask(__name__)
 app.config.from_object(Config)
