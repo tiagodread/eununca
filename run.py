@@ -1,13 +1,21 @@
-from flask_basicauth import BasicAuth
+import os
+
+from flask_basicauth import BasicAuth, Response
 
 from src.api import Api
 from src.app import create_app
 
 if __name__ == '__main__':
     app = create_app()
+    port = int(os.environ.get("PORT", 5000))
     api = Api()
     basic_auth = BasicAuth(app)
+    app.run(host='0.0.0.0', port=port)
 
+
+    @app.route('/', methods=['GET'])
+    def health():
+        return Response(status=200)
 
     @app.route('/quotes', methods=['GET'])
     @basic_auth.required
